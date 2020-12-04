@@ -1,0 +1,12 @@
+rootProject.name = 'RNFlutterDemo'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+
+include ':flutter_module_demo'
+project(':flutter_module_demo').projectDir = new File('../flutter/flutter_module_demo')
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'flutter/flutter_module_demo/.android/include_flutter.groovy'
+))
